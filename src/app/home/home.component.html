@@ -1,0 +1,152 @@
+<div class="row m-0">
+    <div class="col-xl-3 col-lg-4 col-md-8 col-sm-12 mx-auto">
+        <div class="col-12 text-center">
+            Identificación
+        </div>
+        <form action="" [formGroup]="formulario">
+            <div class="row m-0">
+                <div class="col-4">
+                    <label for="name" class="label-input">Nombre*</label>
+                    <input type="text" name="name" id="name" class="input" formControlName="name"
+                    (keypress)="validador($event,'letras')" autocomplete="none" [(ngModel)]="name">
+                    @if (formulario.get('name')?.invalid) {
+                        <span class="msg-error">Este campo es requerido</span>
+                    }
+                </div>
+                <div class="col-4">
+                    <label for="appellidoOne" class="label-input">Primer apellido*</label>
+                    <input type="text" name="appellidoOne" id="appellidoOne" class="input" formControlName="appellidoOne"
+                    (keypress)="validador($event,'letras')" autocomplete="none" [(ngModel)]="appellidoOne">
+                    @if (formulario.get('appellidoOne')?.invalid) {
+                        <span class="msg-error">Este campo es requerido</span>
+                    }
+                </div>
+                <div class="col-4">
+                    <label for="appellidoTwo" class="label-input">Segundo apellido</label>
+                    <input type="text" name="appellidoTwo" id="appellidoTwo" class="input" formControlName="appellidoTwo"
+                    (keypress)="validador($event,'letras')" autocomplete="none" [(ngModel)]="appellidoTwo">
+                </div>
+            </div>
+            <div class="row m-0">
+                <div class="col-6">
+                    <label for="curp" class="label-input">CURP*</label>
+                    <input type="text" name="curp" id="curp" class="input" formControlName="curp"
+                    maxlength="18" (keypress)="validador($event,'alfaNumerico')" autocomplete="none"
+                    [(ngModel)]="curp">
+                    @if (formulario.get('curp')?.invalid) {
+                        <span class="msg-error">Este campo es requerido</span>
+                    }
+                </div>
+                <div class="col-6">
+                    <label for="rfc" class="label-input">RFC (con homoclave)*</label>
+                    <input type="text" name="rfc" id="rfc" class="input" formControlName="rfc"
+                    maxlength="13" minlength="12" (keypress)="validador($event,'alfaNumerico')" autocomplete="none"
+                    [(ngModel)]="rfc">
+                    @if (formulario.get('rfc')?.invalid) {
+                        <span class="msg-error">Este campo es requerido</span>
+                    }
+                </div>
+            </div>
+            <div class="row m-0">
+                <div class="col-3">
+                    <label for="cp" class="label-input">Código postal*</label>
+                    <input type="text" name="cp" id="cp" class="input" minlength="5" formControlName="cp"
+                    (keypress)="validador($event,'numeros')" autocomplete="none" [(ngModel)]="cp">
+                    @if (formulario.get('cp')?.invalid) {
+                        <span class="msg-error">Este campo es requerido</span>
+                    }
+                </div>
+                <div class="col-9">
+                    <label for="calle" class="label-input">Calle*</label>
+                    <input type="text" name="calle" id="calle" class="input" formControlName="calle"
+                    autocomplete="none" [(ngModel)]="calle">
+                    @if (formulario.get('calle')?.invalid) {
+                        <span class="msg-error">Este campo es requerido</span>
+                    }
+                </div>
+            </div>
+            <div class="row m-0">
+                <div class="col-3">
+                    <label for="numExt" class="label-input">Número exterior*</label>
+                    <input type="text" name="numExt" id="numExt" class="input" maxlength="5" formControlName="numExt"
+                    (keypress)="validador($event,'numeros')" autocomplete="none" [(ngModel)]="numExt">
+                    @if (formulario.get('numExt')?.invalid) {
+                        <span class="msg-error">Este campo es requerido</span>
+                    }
+                </div>
+                <div class="col-3">
+                    <label for="numInt" class="label-input">Número interior</label>
+                    <input type="text" name="numInt" id="numInt" class="input" formControlName="numInt"
+                    maxlength="10" autocomplete="none" [(ngModel)]="numInt">
+                </div>
+                <div class="col-6">
+                    <label for="estado" class="label-input">Estado*</label>
+                    <select name="estado" id="estado" class="input" formControlName="estado" [(ngModel)]="estado">
+                        <option value="" disabled>Estado</option>
+                        <option value="1">Estado de México</option>
+                        <option value="2">Ciudad de México</option>
+                        <option value="3">Michoacan</option>
+                        <option value="4">Puebla</option>
+                        <option value="5">Nayarit</option>
+                        <option value="6">Jalisco</option>
+                        <option value="7">Monterrey</option>
+                        <option value="8">Chihuhahua</option>
+                        <option value="9">Nayarit</option>
+                        <option value="10">Yucatán</option>
+                        <option value="11">Baja california</option>
+                        <option value="12">Guerrero</option>
+                        <option value="13">Chiapas</option>
+                        <option value="14">Nuevo Léon</option>
+                        <option value="15">Sonora</option>
+                        <option value="16">Estado de Hidalgo</option>
+                        <option value="17">Tamaulipas</option>
+                        <option value="18">Tlaxcala</option>
+                        <option value="19">Quintana Roo</option>
+                        <option value="20">Guanajuato</option>
+                        <option value="21">Tabasco</option>
+                        <option value="22">Aguascalientes</option>
+                        <option value="23">Oaxaca</option>
+                        <option value="24">Veracruz</option>
+                        <option value="25">San Luis Potosi</option>
+                        <option value="26">Durango</option>
+                        <option value="27">Zacatecas</option>
+                        <option value="28">Colima</option>
+                        <option value="29">Campeche</option>
+                        <option value="30">Baja California Sur</option>
+                        <option value="31">Coahuila de Zaragoza</option>
+                    </select>
+                    @if (formulario.get('estado')?.invalid) {
+                        <span class="msg-error">Este campo es requerido</span>
+                    }
+                </div>
+            </div>
+            <div class="row m-0">
+                <div class="col-6">
+                    <label for="delMun" class="label-input">Delegación/Municipio*</label>
+                    <input type="text" name="delMun" id="delMun" class="input" formControlName="delMun"
+                    (keypress)="validador($event,'letras')" autocomplete="none" [(ngModel)]="delMun">
+                    @if (formulario.get('delMun')?.invalid) {
+                        <span class="msg-error">Este campo es requerido</span>
+                    }
+                </div>
+                <div class="col-6">
+                    <label for="colonia" class="label-input">Colonia*</label>
+                    <input type="text" name="colonia" id="colonia" class="input" formControlName="colonia"
+                    (keypress)="validador($event,'letras')" autocomplete="none" [(ngModel)]="colonia">
+                    @if (formulario.get('colonia')?.invalid) {
+                        <span class="msg-error">Este campo es requerido</span>
+                    }
+                </div>
+            </div>
+        </form>
+            <div class="row m-0 mt-2">
+                <div class="col-3 mx-auto text-center">
+                    <button class="btn btn-generico w-100"  (click)="gurdarFormulario()">
+                        Guardar
+                    </button>
+                </div>
+            </div>
+    </div>
+</div>
+<app-datos-tabla></app-datos-tabla>
+
